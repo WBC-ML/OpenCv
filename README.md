@@ -28,3 +28,27 @@
     img[i,999-i] = 255#左上和左边都是一条白线，也有一条交叉的白线
     
   ```
+  - 彩色图像读入OpenCV时依次读取BGR通道的像素值，并存储在ndarray的列中，以三维数组的形式存储
+  - img[0,0,0]访问图像第0列第0行第0通道的像素值
+  - img[0,0]访问第0行第0列的BGR值，即BGR通道的值之和
+  ```
+import numpy as np
+import cv2
+
+blue = np.zeros((300,300,3),dtype=np.uint8)#生成300X300，通道数为3的三通道二维数组
+#print(np.shape(blue)) 结果为（300,300,3）
+blue[:,:,0] = 255#将0通道即蓝色通道的值设为255，即纯蓝
+# print("blue=\n",blue)
+cv2.imshow("blue",blue)
+green = np.zeros((300,300,3),dtype=np.uint8)
+green[:,:,1] = 255
+# print("green=\n",green)
+cv2.imshow("green",green)
+red = np.zeros((300,300,3),dtype=np.uint8)
+red[:,:,2] = 255
+print("red=\n",red)
+cv2.imshow("red",red)
+key = cv2.waitKey()
+if key != -1:
+    cv2.destroyAllWindows()
+  ```
