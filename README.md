@@ -52,4 +52,3 @@ key = cv2.waitKey()
 if key != -1:
     cv2.destroyAllWindows()
   ```
-![三通道分开图片](D:\GitImage\BGRThreeKnnels.jpg)
